@@ -44,11 +44,13 @@ public class QuoteRecyclerAdapter extends RecyclerView.Adapter<Holder> {
 
   class Holder extends RecyclerView.ViewHolder {
 
+    private final View clickView;
     private final TextView quoteText;
     private final TextView quoteSource;
 
     private Holder(View root) {
       super(root);
+      clickView = root.findViewById(R.id.click_view);
       quoteText = root.findViewById(R.id.quote_text);
       quoteSource = root.findViewById(R.id.quote_source);
     }
@@ -61,7 +63,8 @@ public class QuoteRecyclerAdapter extends RecyclerView.Adapter<Holder> {
           ? context.getString(R.string.attribution_format, name)
           : context.getString(R.string.unattributed_source);
       quoteSource.setText(attribution);
-      itemView.setOnClickListener((v) -> listener.onQuoteClick(getAdapterPosition(), quote));
+      clickView.setOnClickListener((v) ->
+          listener.onQuoteClick(getAdapterPosition(), quote));
     }
 
   }

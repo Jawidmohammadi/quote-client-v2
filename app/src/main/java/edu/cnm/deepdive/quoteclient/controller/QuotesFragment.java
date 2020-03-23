@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.quoteclient.controller;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class QuotesFragment extends Fragment {
     View root = inflater.inflate(R.layout.fragment_quotes, container, false);
     quotesList = root.findViewById(R.id.quotes_list);
     FloatingActionButton addQuote = root.findViewById(R.id.add_quote);
-    addQuote.setOnClickListener((v) -> editquote(0));
+    addQuote.setOnClickListener((v) -> editQuote(null));
     return root;
   }
 
@@ -38,13 +39,15 @@ public class QuotesFragment extends Fragment {
     @SuppressWarnings("ConstantConditions")
     MainViewModel viewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
     viewModel.getQuotes().observe(getViewLifecycleOwner(), (quotes) -> {
-      QuoteRecyclerAdapter adapter = new QuoteRecyclerAdapter(getContext(), quotes,
-          (position, quote) -> editQuote(quote.getId()));
+      QuoteRecyclerAdapter adapter = new QuoteRecyclerAdapter(getContext(), quotes, (position, quote) ->
+          editQuote(quote.getId()));
       quotesList.setAdapter(adapter);
     });
   }
 
-  private void editquote(long quoteId){
-    //TODO open up a dialog
+  private void editQuote(UUID quoteId) {
+    Log.d(getClass().getName(), String.valueOf(quoteId));
+    // TODO Open up a dialog fragment to edit the quote.
   }
+
 }
