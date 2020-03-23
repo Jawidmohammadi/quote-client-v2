@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -47,7 +48,8 @@ public class QuotesFragment extends Fragment {
 
   private void editQuote(UUID quoteId) {
     Log.d(getClass().getName(), String.valueOf(quoteId));
-    // TODO Open up a dialog fragment to edit the quote.
+    QuoteEditFragment fragment = QuoteEditFragment.newInstance(quoteId);
+    fragment.show(getParentFragmentManager(), fragment.getClass().getName());
   }
 
 }
