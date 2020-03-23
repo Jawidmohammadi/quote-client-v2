@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import edu.cnm.deepdive.quoteclient.R;
 import edu.cnm.deepdive.quoteclient.view.QuoteRecyclerAdapter;
 import edu.cnm.deepdive.quoteclient.viewmodel.MainViewModel;
@@ -21,6 +22,8 @@ public class QuotesFragment extends Fragment {
       @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View root = inflater.inflate(R.layout.fragment_quotes, container, false);
     quotesList = root.findViewById(R.id.quotes_list);
+    FloatingActionButton addQuote = root.findViewById(R.id.add_quote);
+    addQuote.setOnClickListener((v) -> editquote(0));
     return root;
   }
 
@@ -40,4 +43,7 @@ public class QuotesFragment extends Fragment {
     });
   }
 
+  private void editquote(long quoteId){
+    //TODO open up a dialog
+  }
 }
