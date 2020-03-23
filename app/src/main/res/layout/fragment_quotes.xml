@@ -18,9 +18,10 @@
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/add_quote"
-    style="@style/FloatingAction"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:src="@drawable/ic_add"
+    style="@style/FloatingAction"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

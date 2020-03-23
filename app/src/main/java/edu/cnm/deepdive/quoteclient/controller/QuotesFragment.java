@@ -24,7 +24,7 @@ public class QuotesFragment extends Fragment {
     View root = inflater.inflate(R.layout.fragment_quotes, container, false);
     quotesList = root.findViewById(R.id.quotes_list);
     FloatingActionButton addQuote = root.findViewById(R.id.add_quote);
-    addQuote.setOnClickListener((v) -> editQuote(null));
+    addQuote.setOnClickListener((v) -> editquote(0));
     return root;
   }
 
@@ -44,8 +44,7 @@ public class QuotesFragment extends Fragment {
     });
   }
 
-  private void editQuote(UUID quoteId) {
-    // TODO Open up a dialog fragment to edit the quote.
+  private void editquote(long quoteId){
+    //TODO open up a dialog
   }
-
 }
