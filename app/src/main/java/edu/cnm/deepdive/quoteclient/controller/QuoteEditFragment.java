@@ -111,7 +111,7 @@ public class QuoteEditFragment extends DialogFragment {
           break;
         }
       }
-      if (source == null && !name.isEmpty()) {
+      if (source == null) {
         source = new Source();
         source.setName(name);
       }
